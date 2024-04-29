@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}students list{% endblock title %}
+{% block body %}
+<style>
+  #page4{
+      color: blue;
+  }
+</style>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">sl no.</th>
+            <th scope="col">room number</th>
+            <th scope="col">name</th>
+            <th scope="col">roll number</th>
+            <th scope="col">details</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ i.room_number }}</td>
+                <td>{{ i.students_name }}</td>
+                <td>{{ i.roll_number }}</td>
+                <td><a href="{% url 'students_detail' i.pk %}" class="btn btn-primary">open</a></td>
+              </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}
+

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+<style>
+  #page1 {
+    color: blue;
+  }
+
+  #corousel {
+    width: 100%;
+    height: 400px;
+  }
+  #cardx{
+    height:200px;
+    width:100%;
+  }
+</style>
+<div class="container">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img id="corousel" src="{% static 'image/march_parch.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img id="corousel" src="{% static 'image/scenery.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img id="corousel" src="{% static 'image/group.jpeg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="float m-3">
+    <div class="row align-items">
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'image/card/label1.gif' %}" class="card-img-top" alt="..." id="cardx">
+          <div class="card-body">
+            <center><p class="card-text"><a href="{% url 'students_list'%}" class="btn btn-primary">Go to Boardere's list</a></p></center>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'image/card/label2.gif' %}" class="card-img-top" alt="..." id="cardx">
+          <div class="card-body">
+            <center><p class="card-text"><a href="{% url 'superpage'%}" class="btn btn-primary">Go to Admin Section</a></p></center>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'image/card/label3.gif' %}" class="card-img-top" alt="..." id="cardx">
+          <div class="card-body">
+            <center><p class="card-text"><a href="{% url 'payment_students_list' %}" class="btn btn-primary">Fees Payment record</a></p></center>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'image/card/label4.gif' %}" class="card-img-top" alt="..." id="cardx">
+          <div class="card-body">
+            <center><p class="card-text"><a href="{% url 'visualisation' %}" class="btn btn-primary">Go to Record</a></p></center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

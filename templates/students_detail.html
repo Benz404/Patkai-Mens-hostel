@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}students detail{% endblock title %}
+{% block body %}
+<style>
+  #profile_image {
+    height: 300px;
+    width: 300px;
+  }
+</style>
+<div class="container">
+  <div class="row justify-content-around">
+    <p><b>Created on :</b> {{data.created_time}}</p>
+    <div class="col-6">
+      <p><b>Name :</b> {{data.students_name}}</p>
+      <p><b>Room Number : </b>{{data.room_number}}</p>
+      <p><b>Roll Number : </b>{{data.roll_number}}</p>
+      <p><b>Wing name : </b>{{data.wing_name}}</p>
+    </div>
+    <div class="col-6">
+      <p><b>department :</b> {{data.department}}</p>
+      <p><b>School name : </b>{{data.School}}</p>
+      <p><b>Email Address : </b>{{data.email_id}}</p>
+      <p><b>Phone number : </b>{{data.phone_number}}</p>
+    </div>
+  </div>
+  <center><a href="{% url 'students_list'%}" class="btn btn-primary m-4">Back</a></center>
+</div>
+{% endblock body %}

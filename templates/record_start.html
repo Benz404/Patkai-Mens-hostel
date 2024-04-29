@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %} data visualisation {% endblock title %}  
+{% block body %}
+<div class="container">
+<form action="" method="post">
+    {% csrf_token %}
+    <table class="table">
+        <tbody>
+            <tr>
+              <th scope="col">
+                <select id="inputState" class="form-control" name="year" required>
+                    <option value="" selected disabled>Select the year</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                    <option>2030</option>
+                  </select>
+              </th>
+              <th scope="col">
+                <select id="inputState" class="form-control" name="month" required>
+                    <option value="" selected disabled>Select the month</option>
+                    <option>JANUARY</option>
+                    <option>FEBRUARY</option>
+                    <option>MARCH</option>
+                    <option>APRIL</option>
+                    <option>MAY</option>
+                    <option>JUNE</option>
+                    <option>JULY</option>
+                    <option>AUGUST</option>
+                    <option>SEPTEMBER</option>
+                    <option>OCTOBER</option>
+                    <option>NOVEMBER</option>
+                    <option>DECEMBER</option>
+                </select>
+              </th>
+              <th scope="col"><button type="submit" class="btn btn-primary" style="width:100%">Get Data</button></th>
+            </tr>
+          </tbody>
+    </table>
+</form>
+</div>
+<div class="container">
+  <center>Payers list of : {{ month }} , {{ year }}</center>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">sl no.</th>
+        <th scope="col">student name</th>
+        <th scope="col">room number</th>
+        <th scope="col">roll number</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in dataline %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ i.student_name }}</td>
+            <td>{{ i.room_number }}</td>
+            <td>{{ i.roll_number }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock body %}

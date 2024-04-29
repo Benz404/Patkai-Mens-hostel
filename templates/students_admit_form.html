@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}enrollment form{% endblock title %}
+{% block body %}
+<style>
+    #page2{
+        color: blue;
+    }
+</style>
+<div class="container">
+  {% if messages %}
+            {% for i in messages %}
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <div>
+                    <center>{{i}}</center>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row m-2">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="name" name="name" required maxlength="25">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Roll Number" name="roll" required maxlength="8">
+          </div>
+        </div>
+        <div class="row m-2">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Name of the department" name="department" required maxlength="30">
+            </div>
+            <div class="col">
+                <select id="inputState" class="form-control" name="school">choose
+                    <option selected>Choose your School</option>
+                    <option>School of Sciences</option>
+                    <option>School of Engineering</option>
+                    <option>School of Humanities & Social Science</option>
+                    <option>School of Management</option>
+                  </select>
+            </div>
+          </div>
+          <div class="row m-2">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="room number" name="room" required maxlength="3">
+            </div>
+            <div class="col">
+                <select id="inputState" class="form-control" name="wing">
+                    <option selected>select your wing name</option>
+                    <option>SAHITYARATHI</option>
+                    <option>RUPKONWAR</option>
+                    <option>KOLAGURU</option>
+                    <option>NATASURYA</option>
+                    <option>SUDHAKANTHA</option>
+                    <option>BAGMIBOR</option>
+                  </select>
+            </div>
+          </div>
+          <div class="row m-2">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="phone" name="phone" required maxlength="10">
+            </div>
+            <div class="col">
+              <input type="email" class="form-control" placeholder="Email" name="email" required maxlength="30">
+            </div>
+          </div>
+          <div class="m-3"><center>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </center></div>
+      </form>
+</div>
+{% endblock body %}
