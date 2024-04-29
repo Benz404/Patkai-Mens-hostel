@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}students detail{% endblock title %}
+{% block body %}
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row justify-content-around">
+            <div class="col-6">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="col"><b>Name :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.students_name}}" name="name" disabled></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Roll number :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.roll_number}}" name="roll" disabled></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Wing name :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.wing_name}}" name="wing" disabled></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>department :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.department}}" name="department" disabled></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Room Number :</b></th>
+                            <th scope="col"><input type="number" class="form-control" id="floatingInput"
+                                    value="{{dataline.room_number}}" name="room" disabled></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Email :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.email_id}}" name="mail" disabled></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Phone Number :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.phone_number}}" name="phone" disabled></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>School :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.School}}" name="school" disabled></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-6">
+                <center>
+                    <th scope="col">
+                        <h4>Fees record Form</h4>
+                    </th>
+                </center>
+                <hr>
+                {% if messages %}
+                {% for i in messages %}
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>
+                        <center>{{i}}</center>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="col"><b>Year :</b></th>
+                            <th scope="col"><select id="inputState" class="form-control" name="year" required>
+                                    <option value="" selected disabled>select the year</option>
+                                    <option>2020</option>
+                                    <option>2021</option>
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                    <option>2026</option>
+                                    <option>2027</option>
+                                    <option>2028</option>
+                                </select></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Month :</b></th>
+                            <th scope="col"><select id="inputState" class="form-control" name="month" required>
+                                    <option value="" selected disabled>Select the month</option>
+                                    <option>JANUARY</option>
+                                    <option>FEBRUARY</option>
+                                    <option>MARCH</option>
+                                    <option>APRIL</option>
+                                    <option>MAY</option>
+                                    <option>JUNE</option>
+                                    <option>JULY</option>
+                                    <option>AUGUST</option>
+                                    <option>SEPTEMBER</option>
+                                    <option>OCTOBER</option>
+                                    <option>NOVEMBER</option>
+                                    <option>DECEMBER</option>
+                                </select></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Transaction ID :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput" value="nil"
+                                    name="trid"></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Mess Dues :</b></th>
+                            <th scope="col"><input type="number" class="form-control" id="floatingInput"
+                                    name="fees_amount" required></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Fine :</b></th>
+                            <th scope="col"><input type="number" class="form-control" id="floatingInput"
+                                    name="fine_amount" required></th>
+                        </tr>
+                    </tbody>
+                </table>
+                <center>
+                    <th scope="col"><button type="submit" class="btn btn-success btn-lg btn-block"
+                            style="width:100%">Submit</button></th>
+                </center>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock body %}

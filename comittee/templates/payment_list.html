@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Students Payment List
+{% endblock title %}
+{% block body %}
+<style>
+  #page5{
+      color: blue;
+  }
+</style>
+<div class="container">
+  {% if messages %}
+            {% for i in messages %}
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <div>
+                    <center>{{i}}</center>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+    <table class="table m-3">
+        <a href="{% url 'index' %}"><button class="btn btn-success m-2">homepage</button> </a>
+        <thead>
+          <tr>
+            <th scope="col">Sl. no.</th>
+            <th scope="col">Room Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Roll Number</th>
+            <th scope="col">Add Record</th>
+            <th scope="col">fees history</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in dataline %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.room_number}}</td>
+            <td>{{i.students_name}}</td>
+            <td>{{i.roll_number}}</td>
+            <td><a href="{% url 'payment_form' i.pk %}"><button class="btn btn-success">add</button></a></td>
+            <td><a href="{% url 'fees_history' i.pk %}"><button class="btn btn-primary">open</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock body %}
+

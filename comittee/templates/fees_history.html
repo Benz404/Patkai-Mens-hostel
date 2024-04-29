@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+payments history | {{ parent_data.students_name }}
+{% endblock title %}
+{% block body %}
+<div class="container">
+    {% if messages %}
+    {% for i in messages %}
+    <div class="alert alert-primary d-flex align-items-center" role="alert">
+        <div>
+            <center>{{i}}</center>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <table class="table m-3">
+        <a href="{% url 'payment_students_list' %}"><button class="btn btn-success m-2">homepage</button></a>
+        <div class="container m-3">
+            <p><b>Name :</b> {{ parent_data.students_name }}</p>
+            <p><b>Roll Number :</b> {{ parent_data.roll_number }}</p>
+            <p><b>Room Number :</b> {{ parent_data.room_number }}</p>
+        </div>
+        <thead>
+            <tr>
+                <th scope="col">Sl. no.</th>
+                <th scope="col">year</th>
+                <th scope="col">month</th>
+                <th scope="col">date</th>
+                <th scope="col">transaction id</th>
+                <th scope="col">mess dues</th>
+                <th scope="col">fine</th>
+                <th scope="col">total</th>
+                <th scope="col">action</th>
+                <th scope="col">reciept</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in dataline %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.year}}</td>
+                <td>{{i.month}}</td>
+                <td>{{i.collected_time}}</td>
+                <td>{{i.transaction_id}}</td>
+                <td>{{i.mess_dues}}</td>
+                <td>{{i.fine_dues}}</td>
+                <td>{{i.total_dues}}</td>
+                <td><a href="{% url 'delete_fees' i.pk %}"><button class="btn btn-danger" >delete</button></a></td>
+                <td><a href="{% url 'reciept' i.pk %}"><button class="btn btn-primary" >Reciept</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}students detail{% endblock title %}
+{% block body %}
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row justify-content-around">
+            <div class="col-8">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="col"><b>Name :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.students_name}}" name="name"></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Roll number :</b></th>
+                            <th scope="col"><input type="text" class="form-control" maxlength="8" id="floatingInput"
+                                    value="{{dataline.roll_number}}" name="roll"></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Wing name :</b></th>
+                            <th scope="col"><select id="inputState" class="form-control" name="wing">
+                                    <option selected>{{dataline.wing_name}}</option>
+                                    <option>SAHITYARATHI</option>
+                                    <option>RUPKONWAR</option>
+                                    <option>KOLAGURU</option>
+                                    <option>NATASURYA</option>
+                                    <option>SUDHAKANTHA</option>
+                                    <option>BAGMIBOR</option>
+                                </select></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>department :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.department}}" name="department"></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Room Number :</b></th>
+                            <th scope="col"><input type="number" class="form-control" id="floatingInput"
+                                    value="{{dataline.room_number}}" name="room"></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Email :</b></th>
+                            <th scope="col"><input type="text" class="form-control" id="floatingInput"
+                                    value="{{dataline.email_id}}" name="mail"></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>Phone Number :</b></th>
+                            <th scope="col"><input type="text" maxlength="10" class="form-control" id="floatingInput"
+                                    value="{{dataline.phone_number}}" name="phone"></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><b>School :</b></th>
+                            <th scope="col"><select id="inputState" class="form-control" name="school">
+                                    <option selected>{{dataline.School}}</option>
+                                    <option>School of Sciences</option>
+                                    <option>School of Engineering</option>
+                                    <option>School of Humanities & Social Science</option>
+                                    <option>School of Management</option>
+                                </select></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <center><a href="{% url 'superpage'%}" class="btn btn-primary m-4">Back</a>
+            <button type="submit" class="btn btn-success m-4">Submit</button>
+            </center>
+        </div>
+    </form>
+</div>
+{% endblock body %}
